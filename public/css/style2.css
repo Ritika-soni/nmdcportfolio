@@ -1,0 +1,135 @@
+body {
+  background-image: radial-gradient(#B8D9F0, #E0DCA8); /* Standard syntax (must be last) */
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin:0;
+    padding:0;
+}
+.container{
+   text-align: center;
+}
+.brand_logo{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+.align_size_images{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+.align_size_images:hover{
+    transform: scale(2);
+}
+.jumbotron{
+    cursor: pointer;
+    background-color: #D8D4F0;
+    position: relative;
+    z-index: 1;
+}
+.jumbotron::after{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+    transition: transform 1500ms ease-in;
+}
+.jumbotron-fluid{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.jumbotron-fluid::after{
+  transform: scaleX(0);  
+  transform-origin: right;
+}
+.jumbotron-fluid:hover::after{
+   transform: scalex(1); 
+   transform-origin: left;
+}
+.align_jumbotron{
+    width: 40%;
+    height: 55%;
+}
+.flex-container{
+    width: 80%;
+    min-height: 300px;
+    margin: 0 auto;
+    display: -webkit-flex; /* Safari */     
+    display: flex; /* Standard syntax */
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.flex-container .column{
+    cursor: pointer;
+    padding: 10px;
+    background: #dbdfe5;
+    -webkit-flex: 1; /* Safari */
+    -ms-flex: 1; /* IE 10 */
+    flex: 1; /* Standard syntax */
+    box-sizing: border-box;
+    flex-basis: 40%;
+    margin-right: 40px;
+    margin-bottom: 40px;
+}
+.flex-container .column.bg-alt{
+    background: #b4bac0;
+}
+@media screen and (min-width:768px) {
+    .flex-container {
+        flex-direction:row;
+    }
+}
+.flex_center{
+    display: flex;
+    justify-content: center;
+    width: 15%;
+    margin: auto;
+}
+
+.btn1{
+   width: 200px;  
+   height: 2px;
+}
+
+.btn1{
+  background:#698594;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:35px;
+  font-size:1.2em;
+  padding:7px 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+.btn1:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+.btn1:before,.btn1:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+.btn1:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.btn1:hover:before,.btn1:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}

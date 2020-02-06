@@ -1,0 +1,45 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 12, 2019, 4:30:23 PM
+    Author     : Ritika Soni
+*/
+    html,body {
+        
+        background: url("../images/background.jpg") #222 no-repeat center center fixed;      
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+         margin:0;
+        padding:0;
+        height:100%;
+    }
+  .container{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+} 
+.center {
+  padding: 70px 0;
+  border: 3px solid pink;
+  text-align: center;
+}
+   
+[class^=char]{
+  display: inline-block !important;
+  position: relative;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+.text-color{
+    background-color: #1A5276;
+}
+
