@@ -56,8 +56,8 @@ app.get('*',(req,res)=>{
   res.send("Oops!Page not found");
 });
 
-const HOSTNAME = process.env.HOSTNAME||'127.0.0.1';
+//const HOSTNAME = process.env.HOSTNAME||'127.0.0.1';
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, HOSTNAME, () => {
-  console.log(`Server running at http://${HOSTNAME}:${PORT}/`);
+app.listen(PORT, () => {
+  console.log(`Server running at port: ${PORT}/`);
 });
