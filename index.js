@@ -1,13 +1,32 @@
 const express = require('express');
 const ejs = require('ejs');
+const fs = require('fs');
 
 const app = express();
 // set the view engine to ejs
 app.set('view engine','ejs');
 app.use(express.static(__dirname+'/public'));
+//middleware to incept each req before processing request. Req is paused till next() is executed
+app.use((req,res,next) => {  
+  const now = new Date().toString();
+  const log = `${now}: ${req.method} ${req.url} \n`;
+  fs.appendFileSync('server.log',log,(err) => {
+    if(err) {
+      console.log('Unable to append to server.log.');
+    }
+  });
+  next();
+});
+
+/* Use for maintenance mode
+app.use((req,res,next) => {  
+  res.render('pages/maintenance',{
+    EMAILID:'devendra.fe@gmail.com'
+  });
+  
+}); */
 
 // res.render() looks for file in views folder only
-
 //index page
 app.get('/',(req,res)=>{
   res.render('pages/index',{   
@@ -51,7 +70,15 @@ app.get('/news',(req,res)=>{
   });
 });
 
-//description page
+//Mainteneance page
+app.get('/home',(req,res)=>{
+  res.render('pages/maintenance',{
+    header: "Maintenance Page",
+    currentYear: new Date().getFullYear()
+  });
+});
+
+//other page
 app.get('*',(req,res)=>{
   res.send("Oops!Page not found");
 });
