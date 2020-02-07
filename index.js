@@ -71,10 +71,11 @@ app.get('/news',(req,res)=>{
 });
 
 //Mainteneance page
-app.get('/home',(req,res)=>{
+app.get('/maintenance',(req,res)=>{
   res.render('pages/maintenance',{
     header: "Maintenance Page",
-    currentYear: new Date().getFullYear()
+    currentYear: new Date().getFullYear(),
+    EMAILID:"devendra.fe@gmail.com"
   });
 });
 
